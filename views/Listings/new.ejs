@@ -4,7 +4,7 @@
     <div class="col-8 offset-2">
         
       <h3>Create Listing</h3>
-      <form method="POST" action="/listings">
+      <form method="POST" action="/listings" novalidate class="needs-validation">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -12,7 +12,11 @@
             name="listing[title]"
             type="text"
             class="form-control"
+            required
           />
+          <div class="valid-feedback">
+            Title looks good.
+          </div>
         </div>
 
         <div class="mb-3">
@@ -21,7 +25,11 @@
             name="listing[description]"
             placeholder="Enter description"
             class="form-control"
+            required
           ></textarea>
+          <div class="invalid-feedback">
+              Please enter a short description
+          </div>
         </div>
 
         <div class="mb-3">
@@ -32,13 +40,17 @@
             type="text"
             class="form-control"
           />
+          
         </div>
 
         <div class="row">
             <div class="mb-3 col-md-4">
                 <label for="price" class="form-label">Price</label>
       
-                <input placeholder="800" name="listing[price]" class="form-control" />
+                <input placeholder="800" name="listing[price]" class="form-control" required />
+                <div class="invalid-feedback">
+                  Price is not valid
+                </div>
               </div>
               <div class="mb-3 col-md-8">
                 <label for="country" class="form-label">Country</label>
@@ -47,7 +59,11 @@
                   name="listing[country]"
                   type="text"
                   class="form-control"
+                  required
                 />
+                <div class="invalid-feedback">
+                  Country is not valid
+                </div>
               </div>
         </div>
 
@@ -59,7 +75,11 @@
             name="listing[location]"
             type="text"
             class="form-control"
+            required
           />
+          <div class="invalid-feedback">
+            Location is not valid
+          </div>
         </div>
 
         
