@@ -55,7 +55,7 @@ body {
 .f-info {
   height: 8rem;
   display: flex;
-  background-color: #ebebeb;
+  background-color: #f5eded;
   flex-wrap: wrap;
   justify-content: center;
   align-items: space-evenly;
