@@ -1,17 +1,118 @@
 <% layout('/layouts/boilerplate') -%>
 <body>
-
-  <h3>All Listings</h3>
-  <!--     <form method="GET" action="/listings/new">
+  <!--<h3>All Listings</h3>
+      <form method="GET" action="/listings/new">
         <button>Create Listing</button>
     </form> -->
 
-  <div class="row row-cols-lg-3 row-cols-med-2 row-cols-sm-1">
+  <style>
+    .filter {
+      margin-top: 2rem;
+      text-align: center;
+      margin-right: 2rem;
+      opacity: 0.8;
+      
+    }
+    .filter p {
+      font-size: 0.8rem;
+    }
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    #filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .darkmode {
+      margin-top: 1rem;
+      border: 1px solid black;
+      border-radius: 1rem;
+      height: 3.2rem;
+      padding: 1rem;
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 500px) {
+      #filters {
+        overflow-x: auto; /* Allow horizontal scrolling */
+      }
+
+      /* Show only the first 5 filters */
+      .filter:nth-of-type(n + 6) {
+        display: none; /* Hide filters after the 5th one */
+      }
+    }
+    @media (max-width: 1000px) {
+      #filters {
+        overflow-x: auto; /* Allow horizontal scrolling */
+      }
+
+      /* Show only the first 5 filters */
+      .filter:nth-of-type(n + 7) {
+        display: none; /* Hide filters after the 5th one */
+      }
+    }
+  </style>
+  <!-- <div id="filters">
+    <div class="filter">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-building"></i></div>
+      <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Pools</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-tractor"></i></div>
+      <p>Farms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </div>
+    <div class="darkmode">
+      <div class="form-check form-switch form-check-reverse">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          >Dark mode</label
+        >
+      </div>
+    </div>
+  </div> -->
+  <div class="row row-cols-lg-3 row-cols-med-2 row-cols-sm-1 mt-3">
     <% for(let listing of alllistings) { %>
     <a href="/listings/<%= listing._id %>" class="listing-link">
       <div class="card col listing-card">
         <img
-          src="<%=listing.image%>"
+          src="<%=listing.image.url%>"
           class="card-img-top"
           alt="listing_image"
           style="height: 20rem"
@@ -28,3 +129,24 @@
     <%} %>
   </div>
 </body>
+
+<!-- <script>
+  let darkMode = document.getElementById("flexSwitchCheckDefault");
+  darkMode.addEventListener("click", () => {
+    const htmlElement = document.documentElement;
+
+    // Toggle the data-bs-theme attribute between "dark" and "light"
+    if (htmlElement.getAttribute("data-bs-theme") === "dark") {
+      htmlElement.setAttribute("data-bs-theme", "light");
+    } else {
+      htmlElement.setAttribute("data-bs-theme", "dark");
+    }
+    document.querySelector(".navbar").classList.toggle("dark-mode");
+    document.querySelector(".nav-link").classList.toggle("dark-mode");
+    document.querySelector(".f-info").classList.toggle("dark-mode");
+    document.querySelector(".f-info-links").classList.toggle("dark-mode");
+    document.querySelectorAll(".f-info-links a").forEach(link => {
+    link.classList.toggle("dark-mode");
+});
+  });
+</script> -->
